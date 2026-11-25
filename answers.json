@@ -1,0 +1,49 @@
+{
+  "student_id": "N26120261",
+  "selection_metric": "average_precision",
+  "cost_never_check": 9.046052631578947,
+  "cost_at_default_threshold": {
+    "value": 0.8065789473684211,
+    "run_id": "08c5122f6e7a4c59ad47cc2ef4915d61",
+    "metric": "cost_at_default_threshold"
+  },
+  "threshold": 0.38,
+  "test_cost_per_truck": {
+    "value": 0.7236842105263158,
+    "run_id": "08c5122f6e7a4c59ad47cc2ef4915d61",
+    "metric": "test_cost_per_truck"
+  },
+  "expected_cost_per_truck": 0.7236842105263158,
+  "chosen_model": "hist_gradient_boosting",
+  "comparison": {
+    "model_a": "logistic_regression",
+    "model_b": "hist_gradient_boosting",
+    "metric": "average_precision",
+    "higher_is_better": true,
+    "fold_run_ids_a": [
+      "b2ddc5be35e24e4a96a3651d66fcbde7",
+      "4b0f339a991541e79703140bb99a9d9c",
+      "095483ca1416499cb4beea87e704a01b",
+      "2b1439302e4440b1ae141ece4d55e12a",
+      "ac36e89ed7bd4a589a73be8a1fc05a66"
+    ],
+    "fold_run_ids_b": [
+      "819582062a3040c88d417dc13ddbf6dc",
+      "f345ba399acd487582f11e3f13a28b1c",
+      "68a093b86a7b4c0e974145de98087c43",
+      "1d049b2b7bff4173b046c100ab46df47",
+      "53c584a6f7064a98964b9892e4d6f556"
+    ],
+    "n_train": 9600,
+    "n_test": 2400,
+    "p_naive": 0.008049369141539085,
+    "p_corrected": 0.03090407570840569,
+    "better_model": "hist_gradient_boosting"
+  },
+  "memo": {
+    "decision": "deploy_model",
+    "expected_savings_per_truck": 8.322368421052632,
+    "main_risk": "threshold_drift",
+    "justification": "We compared logistic regression and hist gradient boosting with nested CV and corrected t-tests. Selected hist_gradient_boosting and a cost-tuned threshold of 0.380 (default 0.5 is far too strict given miss cost 500 vs check cost 10). Held-out cost is 0.724 per truck vs never-check 9.046 and check-all 9.819. Expected savings vs never-check: 8.322 per truck. Main caveat: the best threshold can drift if failure rates or costs change."
+  }
+}

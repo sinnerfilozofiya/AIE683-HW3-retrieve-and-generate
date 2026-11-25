@@ -221,3 +221,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local ML / env artifacts
+.venv/
+__pycache__/
+mlflow.db
+mlflow.db-*
+uv.lock
+.python-version
